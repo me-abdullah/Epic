@@ -13,7 +13,7 @@ $(function () {
       $this.prop("disabled", true);
 
       $.ajax({
-        url: "contact.php",
+        url: "https://formspree.io/f/mgejqgkj",
         type: "POST",
         data: {
           name: name,
