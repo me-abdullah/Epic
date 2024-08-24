@@ -148,7 +148,7 @@
               <div id="success"></div>
 
               <form
-                action="https://formspree.io/f/mgejqgkj"
+                action="./server.js"
                 method="POST"
                 name="contact"
                 id="contactForm"
@@ -156,7 +156,7 @@
               >
                 <div class="form-row">
                   <div class="col-sm-6 control-group">
-                    <!-- Removed Netlify attributes -->
+                   
                     <input
                       type="text"
                       class="form-control p-4"
@@ -423,20 +423,6 @@
 
     <!-- SMTP Javascript -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script type="text/javascript">
-      (function() {
-        emailjs.init("service_hlwiquc"); // Replace with your EmailJS user ID
-      })();
-
-      document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    emailjs.sendForm('service_hlwiquc', 'template_hpq6d8y', this)
-      .then(function() {
-        alert('Message sent successfully!');
-      }, function(error) {
-        alert('Failed to send message. Please try again later.');
-      });
-  });
-      </script>
+    
   </body>
 </html>
