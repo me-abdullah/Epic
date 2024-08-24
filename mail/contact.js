@@ -13,7 +13,7 @@ $(function () {
       $this.prop("disabled", true);
 
       $.ajax({
-        url: "./api/contact.js",
+        url: "https://epic-mp3e.onrender.com",
         type: "POST",
         data: {
           name: name,
