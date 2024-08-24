@@ -18,7 +18,7 @@ app.post('/send-email', (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'your-email@example.com',
+    to: 'epicsteamanddeepcleaning@gmai.com',
     subject: 'New Contact Form Submission',
     text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nZip Code: ${zipcode}\nMessage: ${message}`,
   };
