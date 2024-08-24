@@ -144,11 +144,16 @@
         </div>
         <div class="row">
           <div class="col-lg-7 mb-5 mb-lg-0">
-
             <div class="contact-form">
               <div id="success"></div>
 
-              <form action="https://formspree.io/f/mgejqgkj" method="POST" name="contact" id="contactForm" novalidate>
+              <form
+                action="https://formspree.io/f/mgejqgkj"
+                method="POST"
+                name="contact"
+                id="contactForm"
+                novalidate
+              >
                 <div class="form-row">
                   <div class="col-sm-6 control-group">
                     <!-- Removed Netlify attributes -->
@@ -206,7 +211,7 @@
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
-              
+
                 <div class="control-group">
                   <textarea
                     class="form-control p-4"
@@ -230,8 +235,6 @@
                   </button>
                 </div>
               </form>
-              
-
             </div>
           </div>
           <div class="col-lg-5" style="min-height: 400px; min-width: 300px">
@@ -413,12 +416,27 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-<script src="js/email.js"></script>
-<script src="js/server.js"></script>
+    <script src="js/email.js"></script>
+    <script src="js/server.js"></script>
     <!-- Email Javascript -->
     <script src="js/email.js"></script>
 
     <!-- SMTP Javascript -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="text/javascript">
+      (function() {
+        emailjs.init("service_hlwiquc"); // Replace with your EmailJS user ID
+      })();
+
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    emailjs.sendForm('service_hlwiquc', 'template_hpq6d8y', this)
+      .then(function() {
+        alert('Message sent successfully!');
+      }, function(error) {
+        alert('Failed to send message. Please try again later.');
+      });
+  });
+      </script>
   </body>
 </html>
