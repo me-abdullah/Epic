@@ -6,7 +6,8 @@ $(function () {
       event.preventDefault();
       var name = $("input#name").val();
       var email = $("input#email").val();
-      var subject = $("input#subject").val();
+      var phone = $("input#phone").val();
+      var zipcode = $("input#zipcode").val();
       var message = $("textarea#message").val();
 
       $this = $("#sendMessageButton");
@@ -17,9 +18,10 @@ $(function () {
         type: "POST",
         data: {
           name: name,
-          email: email,
-          subject: subject,
-          message: message,
+        email: email,
+        phone: phone,
+        zipcode: zipcode,
+        message: message,
         },
         cache: false,
         error: function () {
@@ -35,21 +37,7 @@ $(function () {
           $("#success > .alert-success").append("</div>");
           $("#contactForm").trigger("reset");
         },
-        // error: function () {
-        //   $("#success").html("<div class='alert alert-danger'>");
-        //   $("#success > .alert-danger")
-        //     .html(
-        //       "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
-        //     )
-        //     .append("</button>");
-        //   $("#success > .alert-success").append(
-        //     $("<strong>").text(
-        //       "Your inquiry has been submitted "
-        //     )
-        //   );
-        //   $("#success > .alert-success").append("</div>");
-        //   $("#contactForm").trigger("reset");
-        // },
+        
         complete: function () {
           setTimeout(function () {
             $this.prop("disabled", false);

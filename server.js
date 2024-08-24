@@ -2,48 +2,38 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
-// Create an Express application
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// Middleware to parse JSON and URL-encoded data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Define the route to handle form submissions
-app.post('/send-email', async (req, res) => {
-  const { fullname, email, phone, zipcode, message } = req.body;
-
-  // Create a transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-
-  // Set up email data
-  let mailOptions = {
-    from: email,
-    to: 'epicsteamanddeepcleaning@gmail.com', // Update to your company email
-    subject: 'New Form Submission',
-    text: `You have received a new message from your website form.\n\nFull Name: ${fullname}\nEmail: ${email}\nPhone: ${phone}\nZip Code: ${zipcode}\nMessage:\n${message}`,
-  };
-
-  // Send email
-  try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).send('Message sent successfully!');
-  } catch (error) {
-    console.error('Error sending email:', error); // Log error
-    res.status(500).send('Failed to send message. Please try again later.');
-  }
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
 });
 
-// Define the port
-const PORT = process.env.PORT || 10000;
+app.post('/send-email', (req, res) => {
+  const { name, email, phone, zipcode, message } = req.body;
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: 'your-email@example.com',
+    subject: 'New Contact Form Submission',
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nZip Code: ${zipcode}\nMessage: ${message}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('Error sending email:', error);
+      res.status(500).send('Failed to send message.');
+    } else {
+      res.status(200).send('Message sent successfully!');
+    }
+  });
+});
+
+const port = process.env.PORT || 10000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
