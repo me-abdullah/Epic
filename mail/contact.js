@@ -4,7 +4,7 @@ $(function () {
     submitError: function ($form, event, errors) {},
     submitSuccess: function ($form, event) {
       event.preventDefault();
-      var name = $("input#name").val();
+      var name = $("input#fname").val();
       var email = $("input#email").val();
       var phone = $("input#phone").val();
       var zipcode = $("input#zipcode").val();
