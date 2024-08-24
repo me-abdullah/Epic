@@ -144,11 +144,14 @@
         </div>
         <div class="row">
           <div class="col-lg-7 mb-5 mb-lg-0">
+
             <div class="contact-form">
               <div id="success"></div>
-              <form action="https://epic-mp3e.onrender.com/send-email" method="POST" name="sentMessage" id="contactForm" novalidate="novalidate">
+
+              <form action="https://formspree.io/f/mgejqgkj" method="POST" name="contact" id="contactForm" novalidate="novalidate" data-netlify="true" netlify>
                 <div class="form-row">
                   <div class="col-sm-6 control-group">
+                    <input type="hidden" name="form-name" value="contact" />
                     <input
                       type="text"
                       class="form-control p-4"
@@ -228,6 +231,7 @@
                   </button>
                 </div>
               </form>
+
             </div>
           </div>
           <div class="col-lg-5" style="min-height: 400px; min-width: 300px">
