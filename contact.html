@@ -148,17 +148,17 @@
             <div class="contact-form">
               <div id="success"></div>
 
-              <form action="https://formspree.io/f/mgejqgkj" method="POST" name="contact" id="contactForm" novalidate="novalidate" data-netlify="true" netlify>
+              <form action="https://formspree.io/f/mgejqgkj" method="POST" name="contact" id="contactForm" novalidate>
                 <div class="form-row">
                   <div class="col-sm-6 control-group">
-                    <input type="hidden" name="form-name" value="contact" />
+                    <!-- Removed Netlify attributes -->
                     <input
                       type="text"
                       class="form-control p-4"
                       name="fname"
                       id="fname"
                       placeholder="Full Name"
-                      required="required"
+                      required
                       autocomplete="off"
                       data-validation-required-message="Please enter your full name"
                     />
@@ -166,12 +166,12 @@
                   </div>
                   <div class="col-sm-6 control-group">
                     <input
-                      type="text"
+                      type="email"
                       class="form-control p-4"
-                      name="lname"
+                      name="email"
                       id="email"
                       placeholder="Email Address"
-                      required="required"
+                      required
                       data-validation-required-message="Please enter your Email Address"
                       autocomplete="off"
                     />
@@ -181,12 +181,12 @@
                 <div class="form-row">
                   <div class="col-sm-6 control-group">
                     <input
-                      type="number"
+                      type="tel"
                       class="form-control p-4"
                       name="phone_number"
                       id="phone_number"
                       placeholder="Phone Number"
-                      required="required"
+                      required
                       data-validation-required-message="Please enter your Phone Number"
                       autocomplete="off"
                     />
@@ -194,27 +194,27 @@
                   </div>
                   <div class="col-sm-6 control-group">
                     <input
-                      type="number"
+                      type="text"
                       class="form-control p-4"
                       name="zipcode"
                       id="zipcode"
                       placeholder="Zip Code"
-                      required="required"
+                      required
                       data-validation-required-message="Please enter your Zip Code"
                       autocomplete="off"
                     />
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
-
+              
                 <div class="control-group">
                   <textarea
                     class="form-control p-4"
                     name="message"
                     rows="6"
-                    id="mesage"
+                    id="message"
                     placeholder="Message"
-                    required="required"
+                    required
                     data-validation-required-message="Please enter your message"
                     autocomplete="off"
                   ></textarea>
@@ -225,12 +225,12 @@
                     class="btn btn-primary btn-block py-3 px-5"
                     type="submit"
                     id="sendMessageButton"
-                    onclick="sendMessage()"
                   >
                     Send Message
                   </button>
                 </div>
               </form>
+              
 
             </div>
           </div>
